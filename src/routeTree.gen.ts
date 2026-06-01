@@ -9,20 +9,66 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SigninRouteImport } from './routes/signin'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PaymentRouteImport } from './routes/payment'
+import { Route as ForgotRouteImport } from './routes/forgot'
 import { Route as CatalogRouteImport } from './routes/catalog'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountIndexRouteImport } from './routes/account.index'
 import { Route as ReaderIdRouteImport } from './routes/reader.$id'
 import { Route as BookIdRouteImport } from './routes/book.$id'
+import { Route as AccountSubscriptionRouteImport } from './routes/account.subscription'
+import { Route as AccountReviewsRouteImport } from './routes/account.reviews'
+import { Route as AccountPaymentsRouteImport } from './routes/account.payments'
+import { Route as AccountHistoryRouteImport } from './routes/account.history'
 
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SigninRoute = SigninRouteImport.update({
+  id: '/signin',
+  path: '/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentRoute = PaymentRouteImport.update({
+  id: '/payment',
+  path: '/payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotRoute = ForgotRouteImport.update({
+  id: '/forgot',
+  path: '/forgot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CatalogRoute = CatalogRouteImport.update({
   id: '/catalog',
   path: '/catalog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AccountIndexRoute = AccountIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AccountRoute,
 } as any)
 const ReaderIdRoute = ReaderIdRouteImport.update({
   id: '/reader/$id',
@@ -34,48 +80,193 @@ const BookIdRoute = BookIdRouteImport.update({
   path: '/book/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountSubscriptionRoute = AccountSubscriptionRouteImport.update({
+  id: '/subscription',
+  path: '/subscription',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountReviewsRoute = AccountReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountPaymentsRoute = AccountPaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountHistoryRoute = AccountHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => AccountRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRouteWithChildren
   '/catalog': typeof CatalogRoute
+  '/forgot': typeof ForgotRoute
+  '/payment': typeof PaymentRoute
+  '/pricing': typeof PricingRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
+  '/account/history': typeof AccountHistoryRoute
+  '/account/payments': typeof AccountPaymentsRoute
+  '/account/reviews': typeof AccountReviewsRoute
+  '/account/subscription': typeof AccountSubscriptionRoute
   '/book/$id': typeof BookIdRoute
   '/reader/$id': typeof ReaderIdRoute
+  '/account/': typeof AccountIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/catalog': typeof CatalogRoute
+  '/forgot': typeof ForgotRoute
+  '/payment': typeof PaymentRoute
+  '/pricing': typeof PricingRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
+  '/account/history': typeof AccountHistoryRoute
+  '/account/payments': typeof AccountPaymentsRoute
+  '/account/reviews': typeof AccountReviewsRoute
+  '/account/subscription': typeof AccountSubscriptionRoute
   '/book/$id': typeof BookIdRoute
   '/reader/$id': typeof ReaderIdRoute
+  '/account': typeof AccountIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRouteWithChildren
   '/catalog': typeof CatalogRoute
+  '/forgot': typeof ForgotRoute
+  '/payment': typeof PaymentRoute
+  '/pricing': typeof PricingRoute
+  '/signin': typeof SigninRoute
+  '/signup': typeof SignupRoute
+  '/account/history': typeof AccountHistoryRoute
+  '/account/payments': typeof AccountPaymentsRoute
+  '/account/reviews': typeof AccountReviewsRoute
+  '/account/subscription': typeof AccountSubscriptionRoute
   '/book/$id': typeof BookIdRoute
   '/reader/$id': typeof ReaderIdRoute
+  '/account/': typeof AccountIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/catalog' | '/book/$id' | '/reader/$id'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/catalog'
+    | '/forgot'
+    | '/payment'
+    | '/pricing'
+    | '/signin'
+    | '/signup'
+    | '/account/history'
+    | '/account/payments'
+    | '/account/reviews'
+    | '/account/subscription'
+    | '/book/$id'
+    | '/reader/$id'
+    | '/account/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/catalog' | '/book/$id' | '/reader/$id'
-  id: '__root__' | '/' | '/catalog' | '/book/$id' | '/reader/$id'
+  to:
+    | '/'
+    | '/catalog'
+    | '/forgot'
+    | '/payment'
+    | '/pricing'
+    | '/signin'
+    | '/signup'
+    | '/account/history'
+    | '/account/payments'
+    | '/account/reviews'
+    | '/account/subscription'
+    | '/book/$id'
+    | '/reader/$id'
+    | '/account'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/catalog'
+    | '/forgot'
+    | '/payment'
+    | '/pricing'
+    | '/signin'
+    | '/signup'
+    | '/account/history'
+    | '/account/payments'
+    | '/account/reviews'
+    | '/account/subscription'
+    | '/book/$id'
+    | '/reader/$id'
+    | '/account/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRouteWithChildren
   CatalogRoute: typeof CatalogRoute
+  ForgotRoute: typeof ForgotRoute
+  PaymentRoute: typeof PaymentRoute
+  PricingRoute: typeof PricingRoute
+  SigninRoute: typeof SigninRoute
+  SignupRoute: typeof SignupRoute
   BookIdRoute: typeof BookIdRoute
   ReaderIdRoute: typeof ReaderIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signin': {
+      id: '/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof SigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment': {
+      id: '/payment'
+      path: '/payment'
+      fullPath: '/payment'
+      preLoaderRoute: typeof PaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot': {
+      id: '/forgot'
+      path: '/forgot'
+      fullPath: '/forgot'
+      preLoaderRoute: typeof ForgotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/catalog': {
       id: '/catalog'
       path: '/catalog'
       fullPath: '/catalog'
       preLoaderRoute: typeof CatalogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -84,6 +275,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/account/': {
+      id: '/account/'
+      path: '/'
+      fullPath: '/account/'
+      preLoaderRoute: typeof AccountIndexRouteImport
+      parentRoute: typeof AccountRoute
     }
     '/reader/$id': {
       id: '/reader/$id'
@@ -99,12 +297,65 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account/subscription': {
+      id: '/account/subscription'
+      path: '/subscription'
+      fullPath: '/account/subscription'
+      preLoaderRoute: typeof AccountSubscriptionRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/reviews': {
+      id: '/account/reviews'
+      path: '/reviews'
+      fullPath: '/account/reviews'
+      preLoaderRoute: typeof AccountReviewsRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/payments': {
+      id: '/account/payments'
+      path: '/payments'
+      fullPath: '/account/payments'
+      preLoaderRoute: typeof AccountPaymentsRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/history': {
+      id: '/account/history'
+      path: '/history'
+      fullPath: '/account/history'
+      preLoaderRoute: typeof AccountHistoryRouteImport
+      parentRoute: typeof AccountRoute
+    }
   }
 }
 
+interface AccountRouteChildren {
+  AccountHistoryRoute: typeof AccountHistoryRoute
+  AccountPaymentsRoute: typeof AccountPaymentsRoute
+  AccountReviewsRoute: typeof AccountReviewsRoute
+  AccountSubscriptionRoute: typeof AccountSubscriptionRoute
+  AccountIndexRoute: typeof AccountIndexRoute
+}
+
+const AccountRouteChildren: AccountRouteChildren = {
+  AccountHistoryRoute: AccountHistoryRoute,
+  AccountPaymentsRoute: AccountPaymentsRoute,
+  AccountReviewsRoute: AccountReviewsRoute,
+  AccountSubscriptionRoute: AccountSubscriptionRoute,
+  AccountIndexRoute: AccountIndexRoute,
+}
+
+const AccountRouteWithChildren =
+  AccountRoute._addFileChildren(AccountRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRouteWithChildren,
   CatalogRoute: CatalogRoute,
+  ForgotRoute: ForgotRoute,
+  PaymentRoute: PaymentRoute,
+  PricingRoute: PricingRoute,
+  SigninRoute: SigninRoute,
+  SignupRoute: SignupRoute,
   BookIdRoute: BookIdRoute,
   ReaderIdRoute: ReaderIdRoute,
 }
