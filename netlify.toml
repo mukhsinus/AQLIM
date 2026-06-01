@@ -7,3 +7,8 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
