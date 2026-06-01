@@ -8,7 +8,10 @@ export default defineConfig({
   plugins: [
     tsconfigPaths(),
     tanstackStart({
-      server: { entry: "./src/server.ts" },
+      server: {
+        entry: "./src/server.ts",
+        preset: "netlify",
+      },
     }),
     viteReact(),
     tailwindcss(),
