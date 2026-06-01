@@ -22,8 +22,8 @@ function Profile() {
           <Input defaultValue={mockUser.name} className="mt-1.5" />
         </div>
         <div>
-          <Label>Email</Label>
-          <Input defaultValue={mockUser.email} className="mt-1.5" />
+          <Label>Номер телефона</Label>
+          <Input type="tel" defaultValue={mockUser.phone} className="mt-1.5" />
         </div>
         <div>
           <Label>Дата регистрации</Label>
@@ -45,7 +45,7 @@ function Profile() {
           </div>
           <div className="h-px bg-border" />
           <label className="flex items-center justify-between gap-4 cursor-pointer">
-            <span className="text-muted-foreground">Email-уведомления</span>
+            <span className="text-muted-foreground">SMS-уведомления</span>
             <input type="checkbox" defaultChecked className="size-4 shrink-0 accent-gold" />
           </label>
           <div className="h-px bg-border" />

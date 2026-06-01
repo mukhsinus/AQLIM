@@ -120,7 +120,7 @@ export const plans = [
 export const mockUser = {
   id: "u1",
   name: "Mukhsin Kamolov",
-  email: "mukhsin@aqlim.uz",
+  phone: "+998903173808",
   avatar: "https://i.pravatar.cc/200?img=33",
   plan: "annual",
   planExpires: "12 мая 2026",

@@ -108,7 +108,7 @@ function AccountLayout() {
             <img src={mockUser.avatar} className="size-11 sm:size-16 rounded-full object-cover ring-2 ring-gold shrink-0" />
             <div className="flex-1 min-w-0">
               <h1 className="font-display text-lg sm:text-2xl md:text-3xl font-medium truncate">{mockUser.name}</h1>
-              <p className="text-xs sm:text-sm text-muted-foreground truncate">{mockUser.email}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground truncate">{mockUser.phone}</p>
             </div>
             <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-xs font-medium shrink-0">
               <Crown className="size-3 text-gold" /> Annual
