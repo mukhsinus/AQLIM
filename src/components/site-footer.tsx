@@ -13,7 +13,7 @@ export function SiteFooter() {
             <span className="font-display text-xl font-semibold">AQLIM</span>
           </div>
           <p className="text-sm text-muted-foreground max-w-xs">
-            Премиум цифровая библиотека Узбекистана. Читайте лучшие книги на узбекском, русском и английском.
+            Цифровая библиотека Узбекистана. Читайте лучшие книги на узбекском, русском и английском.
           </p>
         </div>
         <div>

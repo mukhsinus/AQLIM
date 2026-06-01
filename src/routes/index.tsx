@@ -9,7 +9,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AQLIM — Премиум цифровая библиотека Узбекистана" },
+      { title: "AQLIM — Цифровая библиотека Узбекистана" },
       { name: "description", content: "Тысячи книг на узбекском, русском и английском. Читайте без ограничений за 39 000 сум в месяц." },
     ],
   }),
@@ -30,7 +30,7 @@ function Home() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-foreground/5 border border-border text-xs font-medium mb-6">
               <Sparkles className="size-3 text-gold" />
-              Премиум библиотека №1 в Узбекистане
+              Цифровая библиотека №1 в Узбекистане
             </div>
             <h1 className="font-display text-5xl md:text-7xl font-medium leading-[1.05] tracking-tight">
               Целая библиотека <em className="text-gold not-italic">в кармане</em>

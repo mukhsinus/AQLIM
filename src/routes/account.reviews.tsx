@@ -14,16 +14,16 @@ const myReviews = [
 function Reviews() {
   return (
     <div>
-      <h2 className="font-display text-2xl font-medium">Мои отзывы</h2>
-      <p className="text-sm text-muted-foreground mb-6">Книги, которые вы оценили</p>
+      <h2 className="font-display text-xl sm:text-2xl font-medium">Мои отзывы</h2>
+      <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6">Книги, которые вы оценили</p>
       <div className="space-y-3">
         {myReviews.map((r, i) => {
           const b = books.find(x => x.id === r.bookId)!;
           return (
-            <div key={i} className="p-5 rounded-2xl border border-border bg-card">
-              <div className="flex items-center justify-between mb-2">
-                <Link to="/book/$id" params={{ id: b.id }} className="font-display font-medium hover:text-gold">{b.title}</Link>
-                <div className="flex">{Array.from({length:5}).map((_,j)=>(<Star key={j} className={`size-3.5 ${j<r.rating?"fill-gold text-gold":"text-muted"}`} />))}</div>
+            <div key={i} className="p-4 sm:p-5 rounded-2xl border border-border bg-card">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 mb-2">
+                <Link to="/book/$id" params={{ id: b.id }} className="font-display text-sm sm:text-base font-medium hover:text-gold">{b.title}</Link>
+                <div className="flex shrink-0">{Array.from({length:5}).map((_,j)=>(<Star key={j} className={`size-3.5 ${j<r.rating?"fill-gold text-gold":"text-muted"}`} />))}</div>
               </div>
               <p className="text-sm">{r.text}</p>
               <div className="text-xs text-muted-foreground mt-2">{r.date}</div>

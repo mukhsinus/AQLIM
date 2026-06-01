@@ -44,9 +44,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "theme-color", content: "#f9f5ec" },
-      { title: "AQLIM — Премиум цифровая библиотека Узбекистана" },
+      { title: "AQLIM — Цифровая библиотека Узбекистана" },
       { name: "description", content: "Читайте лучшие книги на узбекском, русском и английском. Подписка от 39 000 сум в месяц." },
-      { property: "og:title", content: "AQLIM — Премиум цифровая библиотека" },
+      { property: "og:title", content: "AQLIM — Цифровая библиотека" },
       { property: "og:description", content: "Тысячи книг. Один тариф. Читайте где угодно." },
       { property: "og:type", content: "website" },
     ],
@@ -72,7 +72,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SiteHeader />
-      <main>
+      <main className="overflow-x-hidden">
         <Outlet />
       </main>
       <MobileNav />
