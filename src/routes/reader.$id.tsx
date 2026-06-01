@@ -44,7 +44,7 @@ const sampleContent = `Был тихий вечер. Солнце медленн
 
 Он улыбнулся своим воспоминаниям и пошёл дальше. Впереди был долгий путь, но он больше не чувствовал усталости. Внутри него поселилась странная лёгкость, как будто что-то важное наконец встало на своё место.`;
 
-export function Reader() {
+function Reader() {
   const { book } = Route.useLoaderData();
   const [theme, setTheme] = useState<keyof typeof themes>("light");
   const [fontSize, setFontSize] = useState(18);
