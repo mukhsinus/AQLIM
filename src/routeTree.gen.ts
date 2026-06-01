@@ -15,11 +15,21 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as ForgotRouteImport } from './routes/forgot'
 import { Route as CatalogRouteImport } from './routes/catalog'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AccountIndexRouteImport } from './routes/account.index'
 import { Route as ReaderIdRouteImport } from './routes/reader.$id'
 import { Route as BookIdRouteImport } from './routes/book.$id'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminSubscriptionsRouteImport } from './routes/admin.subscriptions'
+import { Route as AdminPaymentsRouteImport } from './routes/admin.payments'
+import { Route as AdminCollectionsRouteImport } from './routes/admin.collections'
+import { Route as AdminCategoriesRouteImport } from './routes/admin.categories'
+import { Route as AdminBooksRouteImport } from './routes/admin.books'
+import { Route as AdminAuthorsRouteImport } from './routes/admin.authors'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as AccountSubscriptionRouteImport } from './routes/account.subscription'
 import { Route as AccountReviewsRouteImport } from './routes/account.reviews'
 import { Route as AccountPaymentsRouteImport } from './routes/account.payments'
@@ -55,6 +65,11 @@ const CatalogRoute = CatalogRouteImport.update({
   path: '/catalog',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AccountRoute = AccountRouteImport.update({
   id: '/account',
   path: '/account',
@@ -64,6 +79,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AccountIndexRoute = AccountIndexRouteImport.update({
   id: '/',
@@ -79,6 +99,46 @@ const BookIdRoute = BookIdRouteImport.update({
   id: '/book/$id',
   path: '/book/$id',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSubscriptionsRoute = AdminSubscriptionsRouteImport.update({
+  id: '/subscriptions',
+  path: '/subscriptions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPaymentsRoute = AdminPaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCollectionsRoute = AdminCollectionsRouteImport.update({
+  id: '/collections',
+  path: '/collections',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCategoriesRoute = AdminCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminBooksRoute = AdminBooksRouteImport.update({
+  id: '/books',
+  path: '/books',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAuthorsRoute = AdminAuthorsRouteImport.update({
+  id: '/authors',
+  path: '/authors',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AccountSubscriptionRoute = AccountSubscriptionRouteImport.update({
   id: '/subscription',
@@ -104,6 +164,7 @@ const AccountHistoryRoute = AccountHistoryRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
   '/catalog': typeof CatalogRoute
   '/forgot': typeof ForgotRoute
   '/payment': typeof PaymentRoute
@@ -114,9 +175,18 @@ export interface FileRoutesByFullPath {
   '/account/payments': typeof AccountPaymentsRoute
   '/account/reviews': typeof AccountReviewsRoute
   '/account/subscription': typeof AccountSubscriptionRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/authors': typeof AdminAuthorsRoute
+  '/admin/books': typeof AdminBooksRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/collections': typeof AdminCollectionsRoute
+  '/admin/payments': typeof AdminPaymentsRoute
+  '/admin/subscriptions': typeof AdminSubscriptionsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/book/$id': typeof BookIdRoute
   '/reader/$id': typeof ReaderIdRoute
   '/account/': typeof AccountIndexRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -130,14 +200,24 @@ export interface FileRoutesByTo {
   '/account/payments': typeof AccountPaymentsRoute
   '/account/reviews': typeof AccountReviewsRoute
   '/account/subscription': typeof AccountSubscriptionRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/authors': typeof AdminAuthorsRoute
+  '/admin/books': typeof AdminBooksRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/collections': typeof AdminCollectionsRoute
+  '/admin/payments': typeof AdminPaymentsRoute
+  '/admin/subscriptions': typeof AdminSubscriptionsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/book/$id': typeof BookIdRoute
   '/reader/$id': typeof ReaderIdRoute
   '/account': typeof AccountIndexRoute
+  '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
   '/catalog': typeof CatalogRoute
   '/forgot': typeof ForgotRoute
   '/payment': typeof PaymentRoute
@@ -148,15 +228,25 @@ export interface FileRoutesById {
   '/account/payments': typeof AccountPaymentsRoute
   '/account/reviews': typeof AccountReviewsRoute
   '/account/subscription': typeof AccountSubscriptionRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/authors': typeof AdminAuthorsRoute
+  '/admin/books': typeof AdminBooksRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/collections': typeof AdminCollectionsRoute
+  '/admin/payments': typeof AdminPaymentsRoute
+  '/admin/subscriptions': typeof AdminSubscriptionsRoute
+  '/admin/users': typeof AdminUsersRoute
   '/book/$id': typeof BookIdRoute
   '/reader/$id': typeof ReaderIdRoute
   '/account/': typeof AccountIndexRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/account'
+    | '/admin'
     | '/catalog'
     | '/forgot'
     | '/payment'
@@ -167,9 +257,18 @@ export interface FileRouteTypes {
     | '/account/payments'
     | '/account/reviews'
     | '/account/subscription'
+    | '/admin/analytics'
+    | '/admin/authors'
+    | '/admin/books'
+    | '/admin/categories'
+    | '/admin/collections'
+    | '/admin/payments'
+    | '/admin/subscriptions'
+    | '/admin/users'
     | '/book/$id'
     | '/reader/$id'
     | '/account/'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -183,13 +282,23 @@ export interface FileRouteTypes {
     | '/account/payments'
     | '/account/reviews'
     | '/account/subscription'
+    | '/admin/analytics'
+    | '/admin/authors'
+    | '/admin/books'
+    | '/admin/categories'
+    | '/admin/collections'
+    | '/admin/payments'
+    | '/admin/subscriptions'
+    | '/admin/users'
     | '/book/$id'
     | '/reader/$id'
     | '/account'
+    | '/admin'
   id:
     | '__root__'
     | '/'
     | '/account'
+    | '/admin'
     | '/catalog'
     | '/forgot'
     | '/payment'
@@ -200,14 +309,24 @@ export interface FileRouteTypes {
     | '/account/payments'
     | '/account/reviews'
     | '/account/subscription'
+    | '/admin/analytics'
+    | '/admin/authors'
+    | '/admin/books'
+    | '/admin/categories'
+    | '/admin/collections'
+    | '/admin/payments'
+    | '/admin/subscriptions'
+    | '/admin/users'
     | '/book/$id'
     | '/reader/$id'
     | '/account/'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRouteWithChildren
+  AdminRoute: typeof AdminRouteWithChildren
   CatalogRoute: typeof CatalogRoute
   ForgotRoute: typeof ForgotRoute
   PaymentRoute: typeof PaymentRoute
@@ -262,6 +381,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatalogRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/account': {
       id: '/account'
       path: '/account'
@@ -275,6 +401,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/account/': {
       id: '/account/'
@@ -296,6 +429,62 @@ declare module '@tanstack/react-router' {
       fullPath: '/book/$id'
       preLoaderRoute: typeof BookIdRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/subscriptions': {
+      id: '/admin/subscriptions'
+      path: '/subscriptions'
+      fullPath: '/admin/subscriptions'
+      preLoaderRoute: typeof AdminSubscriptionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/payments': {
+      id: '/admin/payments'
+      path: '/payments'
+      fullPath: '/admin/payments'
+      preLoaderRoute: typeof AdminPaymentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/collections': {
+      id: '/admin/collections'
+      path: '/collections'
+      fullPath: '/admin/collections'
+      preLoaderRoute: typeof AdminCollectionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/categories': {
+      id: '/admin/categories'
+      path: '/categories'
+      fullPath: '/admin/categories'
+      preLoaderRoute: typeof AdminCategoriesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/books': {
+      id: '/admin/books'
+      path: '/books'
+      fullPath: '/admin/books'
+      preLoaderRoute: typeof AdminBooksRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/authors': {
+      id: '/admin/authors'
+      path: '/authors'
+      fullPath: '/admin/authors'
+      preLoaderRoute: typeof AdminAuthorsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/account/subscription': {
       id: '/account/subscription'
@@ -347,9 +536,36 @@ const AccountRouteChildren: AccountRouteChildren = {
 const AccountRouteWithChildren =
   AccountRoute._addFileChildren(AccountRouteChildren)
 
+interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAuthorsRoute: typeof AdminAuthorsRoute
+  AdminBooksRoute: typeof AdminBooksRoute
+  AdminCategoriesRoute: typeof AdminCategoriesRoute
+  AdminCollectionsRoute: typeof AdminCollectionsRoute
+  AdminPaymentsRoute: typeof AdminPaymentsRoute
+  AdminSubscriptionsRoute: typeof AdminSubscriptionsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAuthorsRoute: AdminAuthorsRoute,
+  AdminBooksRoute: AdminBooksRoute,
+  AdminCategoriesRoute: AdminCategoriesRoute,
+  AdminCollectionsRoute: AdminCollectionsRoute,
+  AdminPaymentsRoute: AdminPaymentsRoute,
+  AdminSubscriptionsRoute: AdminSubscriptionsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRouteWithChildren,
+  AdminRoute: AdminRouteWithChildren,
   CatalogRoute: CatalogRoute,
   ForgotRoute: ForgotRoute,
   PaymentRoute: PaymentRoute,
