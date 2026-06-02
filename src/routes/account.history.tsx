@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { readingHistory, getBook } from "@/lib/mock-data";
-import { BookCover } from "@/components/book-cover";
+import { BookCover } from "@/features/catalog/components/book-cover";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 

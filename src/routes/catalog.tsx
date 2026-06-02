@@ -4,9 +4,9 @@ import { useState, useMemo } from "react";
 import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { BookCard } from "@/components/book-card";
+import { BookCard } from "@/features/catalog/components/book-card";
 import { books, categories } from "@/lib/mock-data";
-import { SiteFooter } from "@/components/site-footer";
+import { SiteFooter } from "@/shared/components/site-footer";
 import { cn } from "@/lib/utils";
 
 const search = z.object({

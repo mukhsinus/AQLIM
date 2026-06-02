@@ -3,7 +3,7 @@ import { Outlet, Link, useRouterState, createFileRoute } from "@tanstack/react-r
 import { User, BookMarked, Crown, CreditCard, MessageSquare, LogOut } from "lucide-react";
 import { mockUser } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
-import { SiteFooter } from "@/components/site-footer";
+import { SiteFooter } from "@/shared/components/site-footer";
 
 export const Route = createFileRoute("/account")({
   head: () => ({ meta: [{ title: "Профиль — AQLIM" }] }),

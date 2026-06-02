@@ -1,10 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Star, BookOpen, Crown, ChevronLeft, Heart, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { BookCover } from "@/components/book-cover";
-import { BookCard } from "@/components/book-card";
+import { BookCover } from "@/features/catalog/components/book-cover";
+import { BookCard } from "@/features/catalog/components/book-card";
 import { getBook, getAuthor, getCategory, getSimilarBooks, reviews, collections } from "@/lib/mock-data";
-import { SiteFooter } from "@/components/site-footer";
+import { SiteFooter } from "@/shared/components/site-footer";
 
 export const Route = createFileRoute("/book/$id")({
   loader: ({ params }) => {

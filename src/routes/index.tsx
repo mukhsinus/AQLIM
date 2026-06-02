@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Users, Library, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { BookCard } from "@/components/book-card";
-import { BookCover } from "@/components/book-cover";
+import { BookCard } from "@/features/catalog/components/book-card";
+import { BookCover } from "@/features/catalog/components/book-cover";
 import { books, collections, authors, categories, stats } from "@/lib/mock-data";
-import { SiteFooter } from "@/components/site-footer";
+import { SiteFooter } from "@/shared/components/site-footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Plus, Search, Edit2, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { books, getCategory } from "@/lib/mock-data";
-import { BookCover } from "@/components/book-cover";
+import { BookCover } from "@/features/catalog/components/book-cover";
 
 export const Route = createFileRoute("/admin/books")({ component: AdminBooks });
 

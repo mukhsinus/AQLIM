@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 import {
   Outlet,
   createRootRouteWithContext,
@@ -9,8 +9,9 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { SiteHeader } from "@/components/site-header";
-import { MobileNav } from "@/components/mobile-nav";
+import { SiteHeader } from "@/shared/components/site-header";
+import { MobileNav } from "@/shared/components/mobile-nav";
+import { Providers } from "@/app/providers";
 
 function NotFoundComponent() {
   return (
@@ -70,12 +71,12 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
-    <QueryClientProvider client={queryClient}>
+    <Providers queryClient={queryClient}>
       <SiteHeader />
       <main className="overflow-x-hidden">
         <Outlet />
       </main>
       <MobileNav />
-    </QueryClientProvider>
+    </Providers>
   );
 }

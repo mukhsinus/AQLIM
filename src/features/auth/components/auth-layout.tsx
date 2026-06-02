@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { BookOpen } from "lucide-react";
 import type { ReactNode } from "react";
 import { books } from "@/lib/mock-data";
-import { BookCover } from "./book-cover";
+import { BookCover } from "@/features/catalog/components/book-cover";
 
 export function AuthLayout({ title, subtitle, children, footer }: { title: string; subtitle?: string; children: ReactNode; footer?: ReactNode }) {
   return (

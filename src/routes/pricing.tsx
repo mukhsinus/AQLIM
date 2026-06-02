@@ -3,7 +3,7 @@ import { Check, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
-import { SiteFooter } from "@/components/site-footer";
+import { SiteFooter } from "@/shared/components/site-footer";
 
 export const Route = createFileRoute("/pricing")({
   head: () => ({ meta: [{ title: "Подписка — AQLIM" }] }),
